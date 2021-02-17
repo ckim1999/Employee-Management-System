@@ -23,13 +23,36 @@ const userInterface = [
         type: 'list',
         name: 'options',
         message: 'What would you like to do?',
-        choices: userChoice,
-        default: "View All Employees"
+        choices: userChoice
     }
 ]
 
 // FUNCTIONS
 
 // USER INTERACTIONS
-inquirer
-  .prompt(userInterface)
+
+// create a main function
+const managment = () => {
+    inquirer
+    .prompt(userInterface)
+    .then(result => {
+        switch (result.userInterface) {
+            // user selects 1st option
+            case "View All Employees":
+                break;
+            // user selects 2nd option
+            case "View All Employees by Department":
+                break;
+            // user selects 3rd option
+            case "View All Employees by Manager":
+                break;
+            // user selects 4th option    
+            case "Add Employees":
+                break;
+            // user doesn't pick any available options
+            default:
+                console.log(`Not a viable options. Try again: ${result.userInterface}`);
+                break;
+        }
+    });
+}
